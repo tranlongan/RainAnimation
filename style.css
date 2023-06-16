@@ -1,0 +1,139 @@
+body {
+    padding: 0;
+    margin: 0;
+    overflow: hidden;
+}
+
+.container_stars {
+    width: 100%;
+    max-width: 100%;
+    background: #4B79A1; /* fallback for old browsers */
+    background: -webkit-linear-gradient(to top, #283E51, #0A2342); /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to top, #283E51, #0A2342); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    height: 100vh;
+    background-size: cover;
+}
+
+.container_stars img {
+    width: 100%;
+    max-width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.moon {
+    object-fit: contain;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+}
+
+@keyframes rain {
+    0% {
+        opacity: 0;
+        transform: translateY(0);
+    }
+    10% {
+        opacity: 1;
+        transform: skew(0deg);
+    }
+    20% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+        /*transform: translateY(50vh);*/
+        transform: translate(100px, 50vh) skew(0deg);
+    }
+}
+
+.four-pointed-star:before {
+    content: "";
+    position: absolute;
+    background: var(--color-stars);
+    width: var(--width-stars);
+    height: var(--height-stars);
+    transform: rotate(-45deg) skewX(22.5deg) skewY(22.5deg);
+    box-shadow: var(--boxShadow-stars);
+}
+
+.four-pointed-star:after {
+    content: "";
+    position: absolute;
+    background: var(--color-stars);
+    width: var(--width-stars);
+    height: var(--height-stars);
+    transform: rotate(45deg) skewX(22.5deg) skewY(22.5deg);
+    box-shadow: var(--boxShadow-stars);
+
+}
+
+.ship {
+    position: absolute;
+    width: 80px;
+    height: 80px;
+    transform: translate(-50%, -50%);
+}
+
+.box--name {
+    width: 50%;
+    height: 50%;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translate(-50%);
+    z-index: 1;
+}
+
+.st0 {
+    fill: transparent;
+    stroke: #00CCCC;
+    stroke-width: 1;
+    stroke-miterlimit: 10;
+    stroke-dasharray: 1800;
+    stroke-dashoffset: 0;
+    animation: fontAnimation 5s ease-in-out infinite alternate;
+}
+
+@keyframes fontAnimation {
+    from {
+        fill: transparent;
+        stroke-dashoffset: 1800;
+    }
+    to {
+        fill: #00CCCC;
+        stroke-dashoffset: 0;
+    }
+}
+
+
+@media only screen and (max-width: 639px) {
+    .container_stars img {
+        width: 100%;
+        object-fit: cover;
+        object-position: 30% 70%;
+    }
+
+    .box--name {
+        top: 40vh;
+    }
+}
+
+@media only screen and (max-width: 1024px) {
+    .container_stars img {
+        width: 100%;
+        object-fit: contain;
+    }
+
+    .box--name {
+        top: 32vh;
+    }
+}
+
+
+
+
+
+
+
